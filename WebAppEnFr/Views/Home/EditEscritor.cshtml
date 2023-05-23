@@ -1,0 +1,37 @@
+﻿@model WebAppEnFr.Models.EditEscritorVM
+
+<h1>
+    Editando a @Model.Nombre
+</h1>
+
+@Html.ActionLink("Ir al listado", "Index")
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Id)
+    @Html.DisplayFor(m => m.Id)
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.Nombre)
+    @Html.EditorFor(m => m.Nombre)
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.AnioNacimiento)
+    @Html.EditorFor(m => m.AnioNacimiento)
+    <br />
+    <br />
+
+    <input name="comando"
+           type="submit"
+           value="Modificar"
+           onclick="return confirm('¿Esta seguro?');" />
+
+    <input name="comando"
+           type="submit"
+           value="Recargar"
+            />
+}
+
+

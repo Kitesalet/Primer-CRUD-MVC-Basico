@@ -1,0 +1,54 @@
+﻿@*Tipo del parametro de entrada *@
+@model WebAppEnFr.Models.IndexVM
+
+
+<html>
+    <head>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    </head>
+    <body>
+<h1>
+    Listado.
+</h1>
+
+@Html.ActionLink("Nuevo", "NewEscritor", "Home")
+
+<table border="1">
+    @foreach (var escritor in Model.Escritores)
+    {
+    <tr>
+        <td>
+            @escritor.Id
+        </td>
+        <td>
+            @escritor.Nombre
+        </td>
+        <td>
+            @escritor.AnioNacimiento
+        </td>
+        <td>            
+            @Html.ActionLink(
+                "Editar",
+                "EditEscritor",
+                "Home",
+                new { Id = escritor.Id })
+        </td>
+        <td>
+            @Html.ActionLink(
+               "Eliminar",
+               "DeleteEscritor",
+               "Home",
+               new { Id = escritor.Id },
+               new { onclick = "return confirm('¿Realmente elimina al escritor?');"}
+               )
+        </td>
+    </tr>
+    }
+</table>
+
+
+<script src="~/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="~/css/bootstrap.css" />
+</body>
+</html>

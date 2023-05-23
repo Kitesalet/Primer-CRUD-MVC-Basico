@@ -1,0 +1,22 @@
+﻿@model WebAppEnFr.Models.NewEscritorVM
+
+<h1>
+    Nuevo escritor.
+</h1>
+
+@Html.ActionLink("Ir al listado", "Index")
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Nombre)
+    @Html.EditorFor(m => m.Nombre)
+    <br />
+    <br />
+
+    @Html.LabelFor(m => m.AnioNacimiento)
+    @Html.EditorFor(m => m.AnioNacimiento)
+    <br />
+    <br />
+
+    <input type="submit" value="Adicionar" />
+}
